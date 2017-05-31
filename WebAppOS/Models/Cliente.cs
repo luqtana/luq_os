@@ -12,5 +12,6 @@ namespace WebAppOS.Models
         public int CPF { get; set; }
         public virtual ICollection<Chamado> Chamados { get; set; }
 
+
     }
 }
