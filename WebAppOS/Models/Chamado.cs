@@ -8,15 +8,17 @@ namespace WebAppOS.Models
     public class Chamado
     {
         public int ChamadoId { get; set; }
-        public DateTime DataAbertura { get; set; }
-        public DateTime HoraAbertura { get; set; }
-        public DateTime DataAtendimento { get; set; }
-        public DateTime HoraAtendimento { get; set; }
-        public DateTime DataConclusao { get; set; }
-        public DateTime HoraConclusao { get; set; }
+        public DateTime DataHoraAbertura { get; set; }
+        public DateTime? HoraHoraAtendimento { get; set; }
+        public DateTime? DataHoraConclusao { get; set; }
+        public DateTime DataHoraPrevisaoDeConclusao { get; set; }
+        public int TecnicoId { get; set; }
         public virtual Tecnico Tecnico{ get; set; }
-        public virtual Cliente Cliente { get; set; }
-        public virtual Empresa Empresa { get; set; }
+        public int PessoaId { get; set; }
+        public virtual Pessoa Pessoa { get; set; }
+        public string JustificativaCancelamento { get; set; }
+        public virtual ICollection<HistoricoChamado> HistoricosChamados { get; set; }
+        
 
 
 

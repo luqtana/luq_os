@@ -17,9 +17,9 @@ namespace WebAppOS.DAL
 
         }
 
-        public DbSet<Categoria> Categorias { get; set; }
-        public DbSet<Empresa> Empresas { get; set; }
-        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Pessoa> Pessoas { get; set; }
+        public DbSet<PessoaFisica> PessoasFisicas { get; set; }
+        public DbSet<PessoaJuridica> PessoasJuridicas { get; set; }
         public DbSet<Chamado> Chamados { get; set; }
         public DbSet <Tecnico> Tecnicos{ get; set; }
 
@@ -32,8 +32,9 @@ namespace WebAppOS.DAL
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
 
-
-
+            //Mapeamento para a heranças de Pessoa - PessoaFisica e PessoaJuridica
+            modelBuilder.Entity<PessoaFisica>().ToTable("PessoaFisica");
+            modelBuilder.Entity<PessoaJuridica>().ToTable("PessoaJuridica");
 
 
         }

@@ -5,10 +5,8 @@ using System.Web;
 
 namespace WebAppOS.Models
 {
-    public class Categoria
+    public class PessoaFisica : Pessoa
     {
-        public int CategoriaId { get; set; }
-        public string Nome { get; set; }
-
+        public int CPF { get; set; }
     }
 }
