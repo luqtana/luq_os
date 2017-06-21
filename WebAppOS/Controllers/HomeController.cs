@@ -10,6 +10,7 @@ namespace WebAppOS.Controllers
     {
         public ActionResult Index()
         {
+           // DiagramaDeClasse.DiagramaDeClasse.GerarDiagrama();
             return View();
         }
 
