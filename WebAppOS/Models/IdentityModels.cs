@@ -21,7 +21,7 @@ namespace WebAppOS.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("strConexao", throwIfV1Schema: false)
         {
         }
 
