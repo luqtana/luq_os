@@ -196,8 +196,16 @@
     </style>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+    
+<div id="myModal" class="modal fade in">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="myModalContent"></div>
+        </div>
+    </div>
+</div> 
 
-    <nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -211,8 +219,24 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#about">Quem Somos</a></li>
                     <li><a href="#services">Serviços</a></li>
-                    <li><a href="#portfolio">PORTFOLIO</a></li>
+                    <li><a href="#portfolio">Portfólio</a></li>
                     <li><a href="#contact">Contato</a></li>
+                    @{
+                        if (Request.IsAuthenticated)
+                        {
+                            if (User.IsInRole("Administrador"))
+                            {
+                                <li><a href="/Administracao/Home/Index">Gerenciar [Administração]</a></li>
+                                <li><a href="~/Account/Sair">Sair</a></li>
+                            }
+                        }
+                        else
+                        {
+                            <li><a data-modal="" href="~/Account/Login">Administração</a></li>
+                        }
+                    }
+ 
+
                 </ul>
             </div>
         </div>
@@ -402,11 +426,11 @@
     <div id="googleMap" style="height:400px;width:100%;"></div>
     <script>
 function myMap() {
-var myCenter = new google.maps.LatLng(41.878114, -87.629798);
-var mapProp = {center:myCenter, zoom:12, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
-var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-var marker = new google.maps.Marker({position:myCenter});
-marker.setMap(map);
+        var myCenter = new google.maps.LatLng(41.878114, -87.629798);
+        var mapProp = {center:myCenter, zoom:12, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
+        var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+        var marker = new google.maps.Marker({position:myCenter});
+        marker.setMap(map);
 }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
@@ -419,14 +443,47 @@ marker.setMap(map);
         <a href="#myPage" title="To Top">
             <span class="glyphicon glyphicon-chevron-up"></span>
         </a>
-        <p>Bootstrap Theme Made By <a href="https://www.w3schools.com" title="Visit w3schools">www.w3schools.com</a></p>
-        @Html.Partial("_LoginPartial")
+ 
     </footer>
 
     <script>
-$(document).ready(function(){
-  // Add smooth scrolling to all links in navbar + footer link
-  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+        $(document).ready(function () {
+
+            $.ajaxSetup({ cache: false });
+
+            $("a[data-modal]").on("click", function (e) {
+                $('#myModalContent').load(this.href, function () {
+                    $('#myModal').modal({
+                        keyboard: true
+                    }, 'show');
+                    bindForm(this);
+                 });
+                return false;
+            });
+
+            function bindForm(dialog) {
+                $('form', dialog).submit(function () {
+                    $.ajax({
+                        url: this.action,
+                        type: this.method,
+                        data: $(this).serialize(),
+                        success: function (result) {
+                            if (result.success) {
+                                $('#myModal').modal('hide');
+                                window.location.href = result.url;
+                            
+                            } else {
+                                $('#myModalContent').html(result);
+                                bindForm(dialog);
+                            }
+                        }
+                    });
+                    return false;
+                });
+            }
+
+        // Add smooth scrolling to all links in navbar + footer link
+        $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
     // Make sure this.hash has a value before overriding default behavior
     if (this.hash !== "") {
       // Prevent default anchor click behavior
@@ -447,7 +504,7 @@ $(document).ready(function(){
     } // End if
   });
 
-  $(window).scroll(function() {
+    $(window).scroll(function() {
     $(".slideanim").each(function(){
       var pos = $(this).offset().top;
 
