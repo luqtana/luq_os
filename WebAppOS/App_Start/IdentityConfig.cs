@@ -46,23 +46,43 @@ namespace WebAppOS
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context.Get<ApplicationDbContext>()));
 
             var roleAdministrador = "Administrador";
-            var senha = "Teste@123";
+            var senhaAdministrador = "Admin@123";
 
-            //Create Role Admin if it does not exist
+            var roleUsuario = "Usuário";
+            var senhaUsuario = "User@123";
+
+
             if (!roleManager.RoleExists(roleAdministrador))
             {
                 roleManager.Create(new IdentityRole(roleAdministrador));
             }
 
-            var usuario = new ApplicationUser
+            if (!roleManager.RoleExists(roleUsuario))
+            {
+                roleManager.Create(new IdentityRole(roleUsuario));
+            }
+
+            var usuarioAdministrador = new ApplicationUser
             {
                 UserName = "admin@admin.com.br",
                 Email = "admin@admin.com.br"
             };
 
-            if (manager.Create(usuario, senha).Succeeded)
+            var usuario = new ApplicationUser
             {
-               manager.AddToRole(usuario.Id, roleAdministrador);
+                UserName = "usuario@usuario.com.br",
+                Email = "usuario@usuario.com.br"
+            };
+
+
+            if (manager.Create(usuarioAdministrador, senhaAdministrador).Succeeded)
+            {
+               manager.AddToRole(usuarioAdministrador.Id, roleAdministrador);
+            }
+
+            if (manager.Create(usuario, senhaUsuario).Succeeded)
+            {
+                manager.AddToRole(usuario.Id, roleUsuario);
             }
 
             // Configure validation logic for usernames

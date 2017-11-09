@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<WebAppOS.Models.Chamado>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Chamados";
 }
 
-<h2>Index</h2>
+<h2>Chamados</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Novo", "Create", null, new { @class = "btn btn-default" })
 </p>
 <table class="table">
     <thead>

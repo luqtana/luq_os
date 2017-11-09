@@ -1,8 +1,8 @@
 ﻿<ul class="nav nav-list">
     <li class="">
-        <a href="@Url.Action("Index", "Dashboard")">
+        <a href="@Url.Action("Index", "Chamados")">
             <i class="menu-icon fa fa-tachometer"></i>
-            <span class="menu-text"> Dashboard </span>
+            <span class="menu-text"> Chamados </span>
         </a>
 
         <b class="arrow"></b>
@@ -12,7 +12,7 @@
         <a href="#" class="dropdown-toggle">
             <i class="menu-icon fa fa-desktop"></i>
             <span class="menu-text">
-                UI &amp; Elements
+                Pessoas
             </span>
 
             <b class="arrow fa fa-angle-down"></b>
@@ -21,7 +21,7 @@
         <b class="arrow"></b>
 
         <ul class="submenu">
-            <li class="">
+            @*<li class="">
                 <a href="#" class="dropdown-toggle">
                     <i class="menu-icon fa fa-caret-right"></i>
 
@@ -86,30 +86,30 @@
                         <b class="arrow"></b>
                     </li>
                 </ul>
-            </li>
+            </li>*@
 
             <li class="">
-                <a href="@Url.Action("Typography", "UIElements")">
+                <a href="@Url.Action("Index", "PessoasFisicas")">
                     <i class="menu-icon fa fa-caret-right"></i>
-                    Typography
+                    Física
                 </a>
 
                 <b class="arrow"></b>
             </li>
 
             <li class="">
-                <a href="@Url.Action("Elements", "UIElements")">
+                <a href="@Url.Action("Index", "PessoasJuridicas")">
                     <i class="menu-icon fa fa-caret-right"></i>
-                    Elements
+                    Jurídica
                 </a>
 
                 <b class="arrow"></b>
             </li>
 
             <li class="">
-                <a href="@Url.Action("Buttons", "UIElements")">
+                <a href="@Url.Action("Index", "Tecnicos")">
                     <i class="menu-icon fa fa-caret-right"></i>
-                    Buttons &amp; Icons
+                    Técnicos
                 </a>
 
                 <b class="arrow"></b>
