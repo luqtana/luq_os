@@ -43,6 +43,28 @@ namespace WebAppOS
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
         {
             var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ApplicationDbContext>()));
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context.Get<ApplicationDbContext>()));
+
+            var roleAdministrador = "Administrador";
+            var senha = "Teste@123";
+
+            //Create Role Admin if it does not exist
+            if (!roleManager.RoleExists(roleAdministrador))
+            {
+                roleManager.Create(new IdentityRole(roleAdministrador));
+            }
+
+            var usuario = new ApplicationUser
+            {
+                UserName = "admin@admin.com.br",
+                Email = "admin@admin.com.br"
+            };
+
+            if (manager.Create(usuario, senha).Succeeded)
+            {
+               manager.AddToRole(usuario.Id, roleAdministrador);
+            }
+
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<ApplicationUser>(manager)
             {
