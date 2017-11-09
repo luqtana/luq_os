@@ -7,6 +7,6 @@ namespace WebAppOS.Models
 {
     public class PessoaFisica : Pessoa
     {
-        public int CPF { get; set; }
+        public string CPF { get; set; }
     }
 }

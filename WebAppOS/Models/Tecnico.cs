@@ -9,7 +9,7 @@ namespace WebAppOS.Models
     {
         public int TecnicoId { get; set; }
         public string Nome { get; set; }
-        public int CPF { get; set; }
+        public string CPF { get; set; }
         public virtual ICollection<Chamado> Chamados { get; set; }
     }
 }

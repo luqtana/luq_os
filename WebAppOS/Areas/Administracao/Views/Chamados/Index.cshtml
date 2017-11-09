@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WebAppOS.Models.Chamado>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Pessoa.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tecnico.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataHoraAbertura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoraHoraAtendimento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataHoraConclusao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataHoraPrevisaoDeConclusao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JustificativaCancelamento)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pessoa.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tecnico.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataHoraAbertura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoraHoraAtendimento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataHoraConclusao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataHoraPrevisaoDeConclusao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JustificativaCancelamento)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ChamadoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ChamadoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ChamadoId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,74 @@
+﻿@model WebAppOS.Models.Chamado
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Chamado</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Pessoa.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pessoa.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tecnico.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tecnico.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataHoraAbertura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataHoraAbertura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoraHoraAtendimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoraHoraAtendimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataHoraConclusao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataHoraConclusao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataHoraPrevisaoDeConclusao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataHoraPrevisaoDeConclusao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JustificativaCancelamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JustificativaCancelamento)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ChamadoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
