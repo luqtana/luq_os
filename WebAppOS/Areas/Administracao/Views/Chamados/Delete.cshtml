@@ -4,9 +4,9 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Apagar Chamado</h2>
+<h2>Delete</h2>
 
-<h3>Tem certeza?</h3>
+<h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Chamado</h4>
     <hr />
@@ -28,19 +28,19 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.NumeroChamado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroChamado)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.DataHoraAbertura)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.DataHoraAbertura)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.HoraHoraAtendimento)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.HoraHoraAtendimento)
         </dd>
 
         <dt>
@@ -52,11 +52,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DataHoraPrevisaoDeConclusao)
+            @Html.DisplayNameFor(model => model.Observacao)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DataHoraPrevisaoDeConclusao)
+            @Html.DisplayFor(model => model.Observacao)
         </dd>
 
         <dt>
@@ -73,8 +73,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Apagar" class="btn btn-default" /> |
-            @Html.ActionLink("Voltar", "Index")
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
         </div>
     }
 </div>

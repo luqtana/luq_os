@@ -11,7 +11,6 @@ using WebAppOS.Models;
 
 namespace Areas.Administracao.Controllers
 {
-    [Authorize(Roles = "Administrador")]
     public class TecnicosController : Controller
     {
         private Contexto db = new Contexto();

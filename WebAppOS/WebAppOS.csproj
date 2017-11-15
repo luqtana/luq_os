@@ -617,6 +617,9 @@
     <Content Include="Areas\Administracao\Views\web.config" />
     <Content Include="Areas\Administracao\Views\Widgets\Index.cshtml" />
     <Content Include="Areas\Administracao\Views\_ViewStart.cshtml" />
+    <Content Include="Content\DataTables\css\semanticui.scss" />
+    <Content Include="Content\DataTables\css\mixins.scss" />
+    <Content Include="Content\DataTables\css\common.scss" />
     <Content Include="Areas\Administracao\Views\Chamados\Create.cshtml" />
     <Content Include="Areas\Administracao\Views\Chamados\Delete.cshtml" />
     <Content Include="Areas\Administracao\Views\Chamados\Details.cshtml" />
@@ -637,9 +640,6 @@
     <Content Include="Areas\Administracao\Views\Tecnicos\Details.cshtml" />
     <Content Include="Areas\Administracao\Views\Tecnicos\Edit.cshtml" />
     <Content Include="Areas\Administracao\Views\Tecnicos\Index.cshtml" />
-    <Content Include="Content\DataTables\css\semanticui.scss" />
-    <Content Include="Content\DataTables\css\mixins.scss" />
-    <Content Include="Content\DataTables\css\common.scss" />
     <None Include="Properties\PublishProfiles\luqos - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\luqos - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

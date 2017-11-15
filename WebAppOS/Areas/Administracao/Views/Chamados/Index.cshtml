@@ -1,16 +1,15 @@
 ﻿@model IEnumerable<WebAppOS.Models.Chamado>
 
 @{
-    ViewBag.Title = "Chamados";
+    ViewBag.Title = "Index";
 }
 
-<h2>Lista de Chamados</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Abrir Chamado", "Create", null, new { @class = "btn btn-default" })
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    <thead>
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Pessoa.Nome)
@@ -19,73 +18,52 @@
             @Html.DisplayNameFor(model => model.Tecnico.Nome)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DataHoraAbertura)
+            @Html.DisplayNameFor(model => model.NumeroChamado)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.HoraHoraAtendimento)
+            @Html.DisplayNameFor(model => model.DataHoraAbertura)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DataHoraConclusao)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DataHoraPrevisaoDeConclusao)
+            @Html.DisplayNameFor(model => model.Observacao)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.JustificativaCancelamento)
         </th>
         <th></th>
     </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Pessoa.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Tecnico.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataHoraAbertura)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HoraHoraAtendimento)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataHoraConclusao)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataHoraPrevisaoDeConclusao)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.JustificativaCancelamento)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ChamadoId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ChamadoId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ChamadoId })
-                </td>
-            </tr>
-        }
-</tbody>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pessoa.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tecnico.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumeroChamado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataHoraAbertura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataHoraConclusao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Observacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JustificativaCancelamento)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ChamadoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ChamadoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ChamadoId })
+        </td>
+    </tr>
+}
 
 </table>
-
-@section scripts {
-    <link href="~/Content/DataTables/css/dataTables.bootstrap.css" rel="stylesheet" />
-
-    <link href="~/Content/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
-    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('table').dataTable({
-                "order": [[2, "asc"]],
-                "language": {
-                    "url": "@Url.Content("~/scripts")/PTBR.json"
-                }
-            });
-        });
-    </script>
-
-}

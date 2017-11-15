@@ -11,7 +11,6 @@ using WebAppOS.Models;
 
 namespace Areas.Administracao.Controllers
 {
-    [Authorize(Roles = "Administrador")]
     public class PessoasFisicasController : Controller
     {
         private Contexto db = new Contexto();
@@ -67,7 +66,7 @@ namespace Areas.Administracao.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var pessoaFisica = db.Pessoas.Find(id);
+            var  pessoaFisica = db.PessoasFisicas.Find(id);
             if (pessoaFisica == null)
             {
                 return HttpNotFound();
@@ -112,7 +111,7 @@ namespace Areas.Administracao.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             var pessoaFisica = db.PessoasFisicas.Find(id);
-            db.PessoasFisicas.Remove(pessoaFisica);
+            db.Pessoas.Remove(pessoaFisica);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

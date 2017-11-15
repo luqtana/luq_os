@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Detalhes do chamado</h2>
+<h2>Details</h2>
 
 <div>
     <h4>Chamado</h4>
@@ -27,19 +27,19 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.NumeroChamado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroChamado)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.DataHoraAbertura)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.DataHoraAbertura)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.HoraHoraAtendimento)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.HoraHoraAtendimento)
         </dd>
 
         <dt>
@@ -51,11 +51,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DataHoraPrevisaoDeConclusao)
+            @Html.DisplayNameFor(model => model.Observacao)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DataHoraPrevisaoDeConclusao)
+            @Html.DisplayFor(model => model.Observacao)
         </dd>
 
         <dt>
@@ -69,6 +69,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.ChamadoId }) |
-    @Html.ActionLink("Voltar", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ChamadoId }) |
+    @Html.ActionLink("Back to List", "Index")
 </p>
