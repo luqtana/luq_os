@@ -1,14 +1,13 @@
 ﻿@model IEnumerable<WebAppOS.Models.Tecnico>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista de Técnicos";
 }
 
-<h2>Index</h2>
-
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Cadastar novo técnico", "Create")
 </p>
+<h2>Lista de Técnicos Cadastrados</h2>
 <table class="table">
     <tr>
         <th>
@@ -29,9 +28,9 @@
             @Html.DisplayFor(modelItem => item.CPF)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TecnicoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TecnicoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TecnicoId })
+            @Html.ActionLink("Atualizar", "Edit", new { id=item.TecnicoId }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.TecnicoId }) |
+            @Html.ActionLink("Apagar", "Delete", new { id=item.TecnicoId })
         </td>
     </tr>
 }

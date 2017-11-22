@@ -1,13 +1,12 @@
 ﻿@model WebAppOS.Models.Chamado
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalhes do Chamado";
 }
 
-<h2>Details</h2>
 
 <div>
-    <h4>Chamado</h4>
+    <h4>Detalhes do Chamado</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -69,6 +68,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ChamadoId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Atualizar", "Edit", new { id = Model.ChamadoId }) |
+    @Html.ActionLink("Voltar", "Index")
 </p>

@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<WebAppOS.Models.Chamado>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista de todos os Chamados";
 }
 
-<h2>Index</h2>
-
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Abrir Chamado", "Create")
 </p>
-<table class="table">
+
+<h2>Lista de todos os Chamados</h2>
+<table class="table table-striped table-bordered table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Pessoa.Nome)
@@ -59,9 +59,9 @@
             @Html.DisplayFor(modelItem => item.JustificativaCancelamento)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ChamadoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ChamadoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ChamadoId })
+            @Html.ActionLink("Atualizar", "Edit", new { id=item.ChamadoId }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.ChamadoId }) |
+            @Html.ActionLink("Apagar", "Delete", new { id=item.ChamadoId })
         </td>
     </tr>
 }
